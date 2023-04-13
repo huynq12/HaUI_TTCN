@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace LaptopShop.Models.EF
 {
 	[Table("LaptopCategory")]
-	public class LaptopCategory
+	public class Category
 	{
 		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]

@@ -11,7 +11,7 @@ namespace LaptopShop.Data
 
 		public DbSet<Brand> Brands { get; set; }
 		public DbSet<Laptop> Laptops { get; set; }
-		public DbSet<LaptopCategory> LaptopCategories { get; set; }
+		public DbSet<Category> LaptopCategories { get; set; }
 		public DbSet<Order> Orders { get; set; }
 		public DbSet<OrderDetail> OrderDetails { get; set; }
 

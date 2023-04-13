@@ -23,7 +23,7 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 }).AddEntityFrameworkStores<LaptopDbContext>()
   .AddDefaultTokenProviders();
 
-builder.Services.AddAuthentication(auth =>
+/*builder.Services.AddAuthentication(auth =>
 {
 	auth.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
 	auth.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -43,7 +43,7 @@ builder.Services.AddAuthentication(auth =>
 		ValidAudience = builder.Configuration["JWT:ValidAudience"],
 		IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Key"]))
 	};
-});
+});*/
 
 var app = builder.Build();
 

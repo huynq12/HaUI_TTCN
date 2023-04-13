@@ -75,7 +75,7 @@ namespace LaptopShop.Models.EF
 
 		public int? LaptopCategoryId { get; set; } // mã danh mục sản phẩm
 		[ForeignKey("LaptopCategoryId")]
-		public virtual LaptopCategory LaptopCategory { get; set; }
+		public virtual Category LaptopCategory { get; set; }
 
 		public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 	}
