@@ -27,9 +27,9 @@ namespace LaptopShop.Models.EF
 		public string? Note { get; set; }
 
 		[Required(ErrorMessage = "This field is required")]
-		public int? LaptopId { get; set; }
-		[ForeignKey("LaptopId")]
-		public virtual Laptop Laptop { get; set; }
+		public int? ProductId { get; set; }
+		[ForeignKey("ProductId")]
+		public virtual Product Product { get; set; }
 
 		[Required(ErrorMessage = "This field is required")]
 		public int? OrderId { get; set; }

@@ -14,6 +14,6 @@ namespace LaptopShop.Models.EF
 		[Column(TypeName = "nvarchar(50)")]
 		public string Name { get; set; }
 
-		public virtual ICollection<Laptop> Laptops { get; set; }
+		public virtual ICollection<Product> Laptops { get; set; }
 	}
 }

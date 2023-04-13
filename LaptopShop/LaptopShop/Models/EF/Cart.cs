@@ -29,18 +29,18 @@ namespace LaptopShop.Models.EF
 			return new Cart(context) { CartId = cartId };
 		}
 
-		public void AddToCart(Laptop Laptop, int amount)
+		public void AddToCart(Product product, int amount)
 		{
 			var shoppingCartItem =
 					_context.CartItems.SingleOrDefault(
-						s => s.Laptop.Id == Laptop.Id && s.CartId == CartId);
+						s => s.product.Id == product.Id && s.CartId == CartId);
 
 			if (shoppingCartItem == null)
 			{
 				shoppingCartItem = new CartItem
 				{
 					CartId = CartId,
-					Laptop = Laptop,
+					product = product,
 					Amount = 1
 				};
 
@@ -53,11 +53,11 @@ namespace LaptopShop.Models.EF
 			_context.SaveChanges();
 		}
 
-		public int RemoveFromCart(Laptop Laptop)
+		public int RemoveFromCart(Product Laptop)
 		{
 			var shoppingCartItem =
 					_context.CartItems.SingleOrDefault(
-						s => s.Laptop.Id == Laptop.Id && s.CartId == CartId);
+						s => s.product.Id == Laptop.Id && s.CartId == CartId);
 
 			var localAmount = 0;
 
@@ -79,12 +79,12 @@ namespace LaptopShop.Models.EF
 			return localAmount;
 		}
 
-		public List<CartItem> GetShoppingCartItems()
+		public List<CartItem> GetCartItems()
 		{
 			return CartItems ??
 				   (CartItems =
 					   _context.CartItems.Where(c => c.CartId == CartId)
-						   .Include(s => s.Laptop)
+						   .Include(s => s.product)
 						   .ToList());
 		}
 
@@ -102,7 +102,7 @@ namespace LaptopShop.Models.EF
 		public decimal GetShoppingCartTotal()
 		{
 			var total = _context.CartItems.Where(c => c.CartId == CartId)
-				.Select(c => c.Laptop.Price * c.Amount).Sum();
+				.Select(c => c.product.Price * c.Amount).Sum();
 			return total;
 		}
 	}
