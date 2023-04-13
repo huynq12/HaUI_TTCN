@@ -1,6 +1,6 @@
 ﻿namespace LaptopShop.Repositories
 {
-	public class LaptopRepository
+	public class ProductRepository
 	{
 	}
 }

@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace LaptopShop.Models.EF
 {
-	[Table("Laptop")]
-	public class Laptop
+	[Table("Product")]
+	public class Product
 	{
 		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -75,7 +75,7 @@ namespace LaptopShop.Models.EF
 
 		public int? LaptopCategoryId { get; set; } // mã danh mục sản phẩm
 		[ForeignKey("LaptopCategoryId")]
-		public virtual Category LaptopCategory { get; set; }
+		public virtual Category ProductCategory { get; set; }
 
 		public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 	}
