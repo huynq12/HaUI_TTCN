@@ -1,9 +1,12 @@
 ﻿using LaptopShop.Data;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LaptopShop.Models.EF
 {
+	[Table("Cart")]
 	public class Cart
 	{
 		private readonly LaptopDbContext _context;
@@ -33,14 +36,14 @@ namespace LaptopShop.Models.EF
 		{
 			var shoppingCartItem =
 					_context.CartItems.SingleOrDefault(
-						s => s.product.Id == product.Id && s.CartId == CartId);
+						s => s.Product.Id == product.Id && s.CartId == CartId);
 
 			if (shoppingCartItem == null)
 			{
 				shoppingCartItem = new CartItem
 				{
 					CartId = CartId,
-					product = product,
+					Product = product,
 					Amount = 1
 				};
 
@@ -57,7 +60,7 @@ namespace LaptopShop.Models.EF
 		{
 			var shoppingCartItem =
 					_context.CartItems.SingleOrDefault(
-						s => s.product.Id == Laptop.Id && s.CartId == CartId);
+						s => s.Product.Id == Laptop.Id && s.CartId == CartId);
 
 			var localAmount = 0;
 
@@ -84,7 +87,7 @@ namespace LaptopShop.Models.EF
 			return CartItems ??
 				   (CartItems =
 					   _context.CartItems.Where(c => c.CartId == CartId)
-						   .Include(s => s.product)
+						   .Include(s => s.Product)
 						   .ToList());
 		}
 
@@ -102,7 +105,7 @@ namespace LaptopShop.Models.EF
 		public decimal GetShoppingCartTotal()
 		{
 			var total = _context.CartItems.Where(c => c.CartId == CartId)
-				.Select(c => c.product.Price * c.Amount).Sum();
+				.Select(c => c.Product.Price * c.Amount).Sum();
 			return total;
 		}
 	}

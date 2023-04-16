@@ -7,31 +7,29 @@ namespace LaptopShop.Models.EF
 	public class OrderDetail
 	{
 		[Key]
-		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int Id { get; set; }
 
-		[Required(ErrorMessage = "This field is required")]
+		[Required(ErrorMessage = "This field is required!")]
 		public int Quantity { get; set; }
 
-		[Required(ErrorMessage = "This field is required")]
-		[Column(TypeName = "decimal(18,2)")]
+		[Required(ErrorMessage = "This field is required!")]
+		[Column(TypeName = "decimal(15)")]
 		public decimal Price { get; set; }
 
-		[Required(ErrorMessage = "This field is required")]
+		[Required(ErrorMessage = "This field is required!")]
 		[Column(TypeName = "nvarchar(100)")]
-		public string Status { get; set; }
+		public string Status { get; set; } // đang giao hàng | giao hàng thành công
 
-		public DateTime? ReceivedDate { get; set; } // ngày nhận hàng
+        [DataType(DataType.Date)]
+        public DateTime? ReceivedDate { get; set; } // ngày nhận hàng
 
 		[Column(TypeName = "ntext")]
 		public string? Note { get; set; }
 
-		[Required(ErrorMessage = "This field is required")]
 		public int? ProductId { get; set; }
 		[ForeignKey("ProductId")]
 		public virtual Product Product { get; set; }
 
-		[Required(ErrorMessage = "This field is required")]
 		public int? OrderId { get; set; }
 		[ForeignKey("OrderId")]
 		public virtual Order Order { get; set; }
