@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <link rel="stylesheet" href="../icons/themify-icons/themify-icons.css">
+    <link rel="icon" href="../picture/logo-tabbar.png">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./styleproduct.css">
+    <style>
+         form {
+        width: 70%;
+        padding: 20px;
+        border: 2px solid #635e5e;
+        border-radius: 5px;
+      }
+
+      h2 {
+        font-size: 24px;
+        margin-top: 0;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 15px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      input[type="text"] {
+        width: 370px;
+        margin-bottom: 10px;
+      }
+      input[type="email"] {
+        width: 370px;
+        margin-bottom: 10px;
+      }
+      input[type="comment"] {
+         
+      }
+      input[type="submit"] {
+        margin-left:75%;
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      input[type="radio"] {
+        margin-right: 10px;
+        margin-bottom: 20px;
+      }
+
+      .rating {
+        display: inline-block;
+        font-size: 0;
+      }
+
+      .rating > label {
+        display: inline-block;
+        position: relative;
+        width: 2em;
+        height: 1.1em;
+        margin: 0;
+        padding: 0;
+        cursor: pointer;
+      }
+
+      .rating > label::before {
+        content: "\2605";
+        font-size: 24px;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .rating > input:checked + label::before,
+      .rating > input:hover + label::before {
+        color: #ff5e00;
+      }
+
+      .rating > input:checked + label::before {
+        content: "\2605";
+      }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <!-- section header -->
+        <div id="header">
+            <div class="header-top">               
+                    <ul class="headertop-left">
+                        <li><a href="">Trang chủ</a></li>
+                        <li><a href="">Giới thiệu</a></li>
+                        <li><a href="">Khuyến mãi</a></li>
+                        <li><a href="">Tin tức</a></li>
+                        <li><a href="">Liên hệ</a></li>
+                    </ul>               
+                    <ul class="headertop-right">
+                        <li><i class="ti-email"></i><a href="">abc@gmail.com</a></li>
+                        <li><i class="ti-mobile"></i><a href="">0123456789</a></li>
+                        <li><i class="ti-shopping-cart"></i><a href="">Giỏ hàng</a></li>                       
+                    </ul>                              
+            </div>
+            <!--header-bottom -->
+        <div class="header-bottom">
+            <div class="logo">
+                <img src="../picture/logo.png" alt="" width="200px" height="120px">
+            </div>
+            <div class="search">
+                <input type="text" placeholder="Tìm kiếm">
+            </div>
+           <div class="walfares">
+            <div class="walfare">
+                <img src="../picture/Icon-chinh-hang.png" alt="Chính hãng" width="50px" height="50px">
+                <span>Sản phẩm chính hãng</span>
+            </div>
+            <div class="walfare">
+                <img src="../picture/free-vanchuyen.png" alt="Free" width="50px" height="50px">
+                <span>Free vận chuyển</span>
+            </div>
+            <div class="walfare">
+                <img src="../picture/suachua.jpg" alt="Sửa chữa" width="50px" height="50px">
+                <span>Sửa chữa tại nhà</span>
+            </div>
+            <div class="walfare">
+                <img src="../picture/tragop.png" alt="Chính hãng" width="50px" height="auto">
+                <span>Hỗ trợ trả góp</span>
+            </div>
+           </div>
+
+
+        </div>
+    </div>
+
+    <!--nav-->
+    <div id="nav">
+        <ul class="submenu">
+           <li><a href="">Trang chủ</a></li>
+           <li><a href="">Laptop Acer</a></li>
+           <li><a href="">Laptop Asus</a></li>
+           <li><a href="">Laptop Dell</a></li>
+           <li ><a href="">Laptop HP</a></li>
+           <li ><a href="">Khuyến mãi</a></li>
+           <li ><a href="">Tin tức</a></li>
+           <li><a href="">Liên hệ</a></li>
+        </ul>
+    </div>
+
+    <!-- section detail product -->
+
+    <div id="product-detail">
+        <div class="picture-product">
+            <div class="picone">
+                <img src="../picture/laptop6.jpg" alt="">
+            </div>           
+            <div class="picture-mall">
+                <img src="../picture/laptop6.jpg" alt="">
+                <img src="../picture/laptop13.jpg" alt="" class="mall">
+                <img src="../picture/laptop14.jpg" alt="" class="mall">
+            </div>
+        </div>
+        <div class="product-in4">
+            <a href="">Trang chủ\</a>
+            <a href="">Laptop\</a>
+            <a href="">Laptop Acer</a>
+            <p>ASUS ProArt StudioBook Pro 17 W700G1T-AV046T Laptop</p>
+            <span style="color: red;font-weight: 600; font-size: 18px;">45.600.000₫</span>
+            <div class="kind-btn">
+                <div class="kind-btn1">
+                    <span>Core I5 / Ram 8GB / SSD 128GB</span>
+                    <span style="color: red; margin-top: 5px;font-weight: 600;">45.600.000₫</span>
+                </div>
+                <div class="kind-btn1">
+                    <span>Core I7 / Ram 16GB / SSD 256GB</span>
+                    <span style="color: red; margin-top: 5px;font-weight: 600;">47.900.000₫</span>
+                </div>
+            </div>
+            <span class="detail">Mainboard: HP Chipset Q87 – 4 Khe Ram</span><br>
+            <span class="detail">CPU: Intel® Xeon® Processor Core I5</span><br>
+            <span class="detail">Tản Nhiệt Khí: HP 800 G1 Tiêu Chuẩn</span><br>
+            <span class="detail">RAM: 8GB DDR3 1600Mhz</span><br>
+            <span class="detail">Ổ cứng: SSD 128G + HDD 1TB NEW</span><br>
+            <span class="detail">Card đồ họa: NVIDIA Geforce GTX 1650 4G DDR5 128bit 896 CUDA Core</span>
+            <div class="function-add">
+                <button>-</button>
+                <button>1</button>
+                <button>+</button>
+            </div>
+            <div class="function-btn">
+                <div class="btn-box1">
+                    <i class="ti-shopping-cart"></i><span style="font-weight: 700;">&nbsp;&nbsp;&nbsp;Thêm vào giỏ hàng</span><br>
+                    <span>Giao tận nơi ,lắp đặt miễn phí</span>
+                </div>
+                <div class="btn-box2">
+                    <i class="ti-credit-card"></i><span style="font-weight: 700;">&nbsp;&nbsp;&nbsp;Thanh toán ngay</span><br>
+                    <span>Giao tận nơi ,lắp đặt miễn phí</span>
+                </div>
+            </div>
+        </div>      
+    </div>
+
+    <!-- section-detail -->
+    <div id="section-mota">
+        <span class="box1">Mô Tả</span>
+        <div class="detail">
+                <div class="box2">
+                    <span>CPU</span><p>Intel Core i7-9750H 2.6GHz up to 4.5GHz 12MB</p><br>
+                    <span>RAM</span><p>8GB DDR4 2666MHz (2x SO-DIMM socket, up to 32GB SDRAM)</p><br>
+                    <span>Ổ cứng</span><p>256GB SSD M.2 PCIE G3X4 (Support RAID 0) (2 slots)</p><Br>
+                    <span>Card đồ họa</span><p>NVIDIA GeForce GTX 1660Ti 6GB GDDR6</p><br>
+                    <span>Màn hình</span><p>15.6″ FHD (1920 x 1080) IPS, Anti-Glare, 144Hz, 3ms, 300nits</p><br>
+                    <span>Cổng giao tiếp</span><p>2x USB 3.1, 1x USB 3.1 Gen 2, 1x USB Type C (Thunderbolt), Mini Display Port, HDMI</p><br>
+                    <span>Keyboard</span><p>RGB 4 Zone</p><br>
+                    <span>Audio</span><p>Waves MaxxAudio® Sound Technology</p><br>
+                    <span>Đọc thẻ nhớ</span><p>None</p><br>
+                    <span>Chuẩn LAN</span><p>10/100/1000/Gigabits Base T</p><br>
+                    <span>Chuẩn WIFI</span><p>802.11 AC (2X2) with MU-MIMO</p><br>
+                    <span>Bluetooth</span><p>v5.0</p><br>
+                    <span>Webcam</span><p>Acer Crystal Eye 720p</p><br>
+                    <span>Hệ điều hành</span><p>Windows 10 Home</p><br>
+                    <span>Pin</span><p>4 Cell 48 WHrs</p><br>
+                    <span>Trọng lượng</span><p>2.4 kg</p><br>
+                    <span>Màu sắc</span><p>Abyssal Black</p><br>
+                    <span>Kích thước</span><p>361.4 x 254.15 x 22.9 (mm)</p>
+                </div>               
+        </div>      
+        <div class="box-right">
+            <span class="new-product">Sản phẩm mới</span>
+            <div class="laptop-news">
+                <div class="box-new">
+                    <img src="../picture/laptop5.jpg" alt="">
+                    <p>ASUS ROG Zephyrus M GU502GU-AZ090T Gaming</p>
+                </div>
+                <div class="box-new">
+                    <img src="../picture/laptop9.jpg" alt="">
+                    <p>MSI Modern 15 A10M-068VN Laptop – Space Gray</p>
+                </div>
+                <div class="box-new">
+                    <img src="../picture/laptop6.jpg" alt="">
+                    <p>ASUS ProArt StudioBook Pro 17 W700G1T-AV046T Laptop</p>
+                </div>
+                <div class="box-new">
+                    <img src="../picture/laptop3.jpg" alt="">
+                    <p>Acer Predator Helios 300 PH315-52-78HH Gaming Laptop</p>
+                </div>
+                <div class="box-new">
+                    <img src="../picture/laptop8.jpg" alt="">
+                    <p>ASUS TUF Gaming FX705DT-H7138T Gaming Laptop</p>
+                </div>
+                <div class="box-new">
+                    <img src="../picture/laptop2.jpg" alt="">
+                    <p>Acer Swift 7 SF714-52T - 7134 Laptop – Full Black</p>
+                </div>               
+            </div>
+        </div>
+    </div>
+
+    <!-- section product-similar -->
+    <div id="product-similar">
+        <div class="cross-similar">
+            <span>Sản phẩm tương tự</span>
+        </div>
+        <div class="Show-row">
+            <div class="show-prod">
+                <img src="../picture/laptop5.jpg" alt="">
+                <span>ASUS ROG Zephyrus M GU502GU-AZ090T Gaming</span>
+                <span class="color-price">34.600.000 đ</span>
+            </div>
+            <div class="show-prod">
+                <img src="../picture/laptop9.jpg" alt="">                  
+                <span>MSI Modern 15 A10M-068VN Laptop – Space Gray</span>
+                <span class="color-price">18.600.000 đ</span>
+            </div>
+            <div class="show-prod">
+                <img src="../picture/laptop6.jpg" alt="">
+                <span>ASUS ProArt StudioBook Pro 17 W700G1T-AV046T Laptop</span>
+                <span class="color-price">45.600.000 đ</span>
+            </div>
+            <div class="show-prod">
+                <img src="../picture/laptop3.jpg" alt="">             
+                <span>Acer Predator Helios 300 PH315-52-78HH Gaming Laptop</span>
+                <span class="color-price">44.600.000 đ</span>
+            </div>
+            <div class="show-prod">
+                <img src="../picture/laptop8.jpg" alt="">
+                <span>ASUS TUF Gaming FX705DT-H7138T Gaming Laptop</span>
+                <span class="color-price">42.600.000 đ</span>
+            </div>
+        </div>
+
+        <!--show row 2-->
+        <div class="Show-row">
+            <div class="show-prod">
+                <img src="../picture/laptop2.jpg" alt="">                  
+                <span>  Acer Swift 7 SF714-52T - 7134 Laptop – Full Black</span>
+                <span class="color-price">49.600.000 đ</span>
+            </div>
+            <div class="show-prod">
+                <img src="../picture/laptop10.jpg" alt="">
+                <span>LG Gram 14ZD90N-V.AX55A5 Laptop – Silver</span>
+                <span class="color-price">29.600.000 đ</span>
+            </div>
+            <div class="show-prod">
+                <img src="../picture/laptop11.jpg" alt="">                  
+                <span>ASUS ROG Strix SCAR III G531GN-VAZ160T Laptop</span>
+                <span class="color-price">44.600.000 đ</span>                    
+            </div>
+            <div class="show-prod">
+                <img src="../picture/laptop7.jpg" alt="">
+                <span>HP Omen 15-dh0172TX Gaming Laptop</span>
+                <span class="color-price">49.600.000 đ</span>
+            </div>
+            <div class="show-prod">
+                <img src="../picture/laptop12.jpg" alt="">
+                <span>LG Gram 17Z90N-V.AH75A5 Laptop – Silver</span>
+                <span class="color-price">39.600.000 đ</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- section feedback -->
+    <div id="feedback">
+        <p>Đánh giá ASUS ProArt StudioBook Pro 17 W700G1T-AV046T Laptop</p>
+        <form>
+            <label for="name">Tên của bạn:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="rating">Đánh giá:</label>
+      <div class="rating">
+        <input type="radio" id="star5" name="rating" value="5" required>
+        <label for="star5"></label>
+        <input type="radio" id="star4" name="rating" value="4">
+        <label for="star4"></label>
+        <input type="radio" id="star3" name="rating" value="3">
+        <label for="star3"></label>
+        <input type="radio" id="star2" name="rating" value="2">
+        <label for="star2"></label>
+        <input type="radio" id="star1" name="rating" value="1">
+        <label for="star1"></label>
+      </div>
+
+      <label for="comment">Nhận xét:</label>
+      <textarea id="comment" name="comment" rows="5" required style="width: 500px;height: 100px;"></textarea>
+
+      <input type="submit" value="Gửi đánh giá">
+          </form>
+    </div>
+
+
+    <!-- section footer -->
+    <div id="Footer">
+        <div class="address">
+            <span class="tieude">COMPUTERLOGO</span><br>
+            <i class="ti-home"></i><span>&nbsp;&nbsp;Cơ sở 1:145 Đình Chi-Hà Nội</span><br>
+            <i class="ti-home"></i><span>&nbsp;&nbsp;Cơ sở 1:145 Đình Chi-Hà Nội</span><br>
+            <i class="ti-mobile"></i><span>&nbsp;&nbsp;Hotline : 0123456789</span><br>
+            <i class="ti-email"></i><span>&nbsp;&nbsp;Email : abc@gmail.com</span>
+        </div>
+
+        <div class="Chinhsach">
+            <span class="tieude">Chính Sách</span><br>
+            <span>Chinh sách đổi trả hàng</span><br>
+            <span>Chinh sách bảo hành</span><br>
+            <span>Hướng dẫn mua hàng</span><br>
+            <span>Chinh sách đại lí</span>
+        </div>
+        <div class="thanhtoan">
+            <span class="tieude">Thanh Toán Online</span>
+        </div>
+    </div>
+</div>
+    
+</body>
+</html>
