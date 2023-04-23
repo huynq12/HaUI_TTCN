@@ -1,4 +1,5 @@
 using LaptopShop.Data;
+using LaptopShop.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -12,7 +13,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<LaptopDbContext>(options =>
 {
-	options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer_huy"));
+	options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer_Hoang"));
 });
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
@@ -46,6 +47,12 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 });*/
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    SeedData.InitializeCategory(services);
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
