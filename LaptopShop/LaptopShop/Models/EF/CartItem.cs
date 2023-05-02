@@ -10,6 +10,6 @@ namespace LaptopShop.Models.EF
 		public int ItemId { get; set; }
 		public Product Product { get; set; }
 		public int Amount { get; set; }
-		public string CartId { get; set; }
+		public int CartId { get; set; }
 	}
 }

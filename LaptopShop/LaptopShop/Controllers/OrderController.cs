@@ -1,4 +1,5 @@
-﻿using LaptopShop.Interfaces;
+﻿using LaptopShop.Data;
+using LaptopShop.Interfaces;
 using LaptopShop.Models.EF;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -7,13 +8,11 @@ namespace LaptopShop.Controllers
 {
 	public class OrderController : Controller
 	{
-		private readonly IOrderRepository _orderRepository;
-		private readonly Cart _cart;
+        private readonly LaptopDbContext _context;
 
-		public OrderController(IOrderRepository orderRepository, Cart cart)
+        public OrderController(LaptopDbContext context)
 		{
-			_orderRepository = orderRepository;
-			_cart = cart;
+			_context = context;
 		}
 
 		//[Authorize]
@@ -22,7 +21,34 @@ namespace LaptopShop.Controllers
 			return View();
 		}
 
-		[HttpPost]
+
+      
+
+
+        public void CreateOrder(Order order)
+        {
+            order.OrderDate = DateTime.Now;
+
+            _context.Orders.Add(order);
+
+            var shoppingCartItems = _cart.CartItems;
+
+            foreach (var item in shoppingCartItems)
+            {
+                var orderDetail = new OrderDetail()
+                {
+                    Quantity = item.Amount,
+                    ProductId = item.Product.Id,
+                    OrderId = order.Id,
+                    Price = item.Product.Price
+                };
+
+                _context.OrderDetails.Add(orderDetail);
+            }
+
+            _context.SaveChanges();
+        }
+        [HttpPost]
 		//[Authorize]
 		public IActionResult Checkout(Order order)
 		{

@@ -13,7 +13,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<LaptopDbContext>(options =>
 {
-	options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer_Hoang"));
+	options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer_huy"));
 });
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
