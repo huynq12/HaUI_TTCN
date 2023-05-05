@@ -13,9 +13,10 @@ namespace LaptopShop.Data
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Cart> Carts { get; set; }
         public DbSet<CartItem> CartItems { get; set; }
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<Account> Accounts { get; set; }
 
-
-        // Define the relationships between the tables
+        /*// Define the relationships between the tables
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // prevent automatic deletion of order details when a product is deleted
@@ -31,6 +32,6 @@ namespace LaptopShop.Data
                 .WithOne(od => od.Order)
                 .HasForeignKey(od => od.OrderId)
                 .OnDelete(DeleteBehavior.Cascade); 
-        }
+        }*/
     }
 }

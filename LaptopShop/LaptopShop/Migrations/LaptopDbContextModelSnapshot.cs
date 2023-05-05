@@ -22,10 +22,63 @@ namespace LaptopShop.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("LaptopShop.Models.EF.Account", b =>
+                {
+                    b.Property<int>("AccountCategoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AccountCategoryId"));
+
+                    b.Property<bool?>("Active")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Avatar")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CartCategoryId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("RoleCategoryId")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.HasKey("AccountCategoryId");
+
+                    b.HasIndex("RoleCategoryId");
+
+                    b.ToTable("Accounts");
+                });
+
             modelBuilder.Entity("LaptopShop.Models.EF.Cart", b =>
                 {
-                    b.Property<string>("CartId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("CartId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CartId"));
+
+                    b.Property<decimal>("Total")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("CartId");
 
@@ -43,16 +96,13 @@ namespace LaptopShop.Migrations
                     b.Property<int>("Amount")
                         .HasColumnType("int");
 
-                    b.Property<string>("CartId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("CartId")
+                        .HasColumnType("int");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
                     b.HasKey("ItemId");
-
-                    b.HasIndex("CartId");
 
                     b.HasIndex("ProductId");
 
@@ -61,80 +111,78 @@ namespace LaptopShop.Migrations
 
             modelBuilder.Entity("LaptopShop.Models.EF.Category", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("CategoryId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"));
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(150)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)");
 
-                    b.HasKey("Id");
+                    b.HasKey("CategoryId");
 
                     b.ToTable("Category");
                 });
 
             modelBuilder.Entity("LaptopShop.Models.EF.Order", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("OrderId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderId"));
 
-                    b.Property<string>("CustomerAddress")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(250)");
+                    b.Property<int>("AccountId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("CustomerEmail")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(70)");
+                    b.Property<bool?>("IsCancled")
+                        .HasColumnType("bit");
 
-                    b.Property<string>("CustomerName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("CustomerPhone")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(20)");
+                    b.Property<string>("Note")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)");
+                    b.Property<bool?>("Paid")
+                        .HasColumnType("bit");
 
-                    b.HasKey("Id");
+                    b.Property<DateTime?>("ShipDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("OrderId");
+
+                    b.HasIndex("AccountId");
 
                     b.ToTable("Order");
                 });
 
             modelBuilder.Entity("LaptopShop.Models.EF.OrderDetail", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("OrderDetailId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderDetailId"));
 
-                    b.Property<string>("Note")
-                        .HasColumnType("ntext");
+                    b.Property<decimal?>("Discount")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("OrderId")
-                        .IsRequired()
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PorductId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(15)");
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("ProductId")
-                        .IsRequired()
+                    b.Property<int>("ProductId")
                         .HasColumnType("int");
 
                     b.Property<int>("Quantity")
@@ -144,25 +192,24 @@ namespace LaptopShop.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("OrderDetailId");
 
                     b.HasIndex("OrderId");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("PorductId");
 
                     b.ToTable("OrderDetail");
                 });
 
             modelBuilder.Entity("LaptopShop.Models.EF.Product", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ProductId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"));
 
                     b.Property<string>("BatteryInfor")
                         .IsRequired()
@@ -177,7 +224,6 @@ namespace LaptopShop.Migrations
                         .HasColumnType("nvarchar(200)");
 
                     b.Property<int?>("CategoryId")
-                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("Color")
@@ -185,14 +231,14 @@ namespace LaptopShop.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Description")
-                        .HasColumnType("ntext");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Graphics")
                         .IsRequired()
                         .HasColumnType("nvarchar(200)");
 
-                    b.Property<string>("ImageUrl")
-                        .HasColumnType("ntext");
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Monitor")
                         .IsRequired()
@@ -207,10 +253,10 @@ namespace LaptopShop.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(10)");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal?>("PromotionalPrice")
-                        .HasColumnType("decimal(10)");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
@@ -229,21 +275,46 @@ namespace LaptopShop.Migrations
                     b.Property<double>("Weight")
                         .HasColumnType("float");
 
-                    b.HasKey("Id");
+                    b.HasKey("ProductId");
 
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Product");
                 });
 
-            modelBuilder.Entity("LaptopShop.Models.EF.CartItem", b =>
+            modelBuilder.Entity("LaptopShop.Models.EF.Role", b =>
                 {
-                    b.HasOne("LaptopShop.Models.EF.Cart", null)
-                        .WithMany("CartItems")
-                        .HasForeignKey("CartId")
+                    b.Property<int>("RoleId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoleId"));
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("RoleName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("RoleId");
+
+                    b.ToTable("Roles");
+                });
+
+            modelBuilder.Entity("LaptopShop.Models.EF.Account", b =>
+                {
+                    b.HasOne("LaptopShop.Models.EF.Role", "Role")
+                        .WithMany()
+                        .HasForeignKey("RoleCategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("Role");
+                });
+
+            modelBuilder.Entity("LaptopShop.Models.EF.CartItem", b =>
+                {
                     b.HasOne("LaptopShop.Models.EF.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
@@ -251,6 +322,17 @@ namespace LaptopShop.Migrations
                         .IsRequired();
 
                     b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("LaptopShop.Models.EF.Order", b =>
+                {
+                    b.HasOne("LaptopShop.Models.EF.Account", "Account")
+                        .WithMany("Orders")
+                        .HasForeignKey("AccountId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Account");
                 });
 
             modelBuilder.Entity("LaptopShop.Models.EF.OrderDetail", b =>
@@ -263,9 +345,7 @@ namespace LaptopShop.Migrations
 
                     b.HasOne("LaptopShop.Models.EF.Product", "Product")
                         .WithMany("OrderDetails")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .HasForeignKey("PorductId");
 
                     b.Navigation("Order");
 
@@ -276,16 +356,14 @@ namespace LaptopShop.Migrations
                 {
                     b.HasOne("LaptopShop.Models.EF.Category", "Category")
                         .WithMany("Products")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CategoryId");
 
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("LaptopShop.Models.EF.Cart", b =>
+            modelBuilder.Entity("LaptopShop.Models.EF.Account", b =>
                 {
-                    b.Navigation("CartItems");
+                    b.Navigation("Orders");
                 });
 
             modelBuilder.Entity("LaptopShop.Models.EF.Category", b =>

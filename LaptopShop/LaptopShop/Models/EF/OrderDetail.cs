@@ -6,32 +6,42 @@ namespace LaptopShop.Models.EF
 	[Table("OrderDetail")]
 	public class OrderDetail
 	{
-		[Key]
-		public int Id { get; set; }
+        [Key]
+        [Display(Name = "Id")]
+        public int OrderDetailId { get; set; }
 
-		[Required(ErrorMessage = "This field is required!")]
-		public int Quantity { get; set; }
+        [Required]
+        public int ProductId { get; set; }
 
-		[Required(ErrorMessage = "This field is required!")]
-		[Column(TypeName = "decimal(15)")]
-		public decimal Price { get; set; }
+        [Required]
+        public int OrderId { get; set; }
 
-		[Required(ErrorMessage = "This field is required!")]
-		[Column(TypeName = "nvarchar(100)")]
-		public string Status { get; set; } // đang giao hàng | giao hàng thành công
+        [Required]
+        public int Quantity { get; set; }
 
-        [DataType(DataType.Date)]
-        public DateTime? ReceivedDate { get; set; } // ngày nhận hàng
+        [Required]
+        public decimal Price { get; set; }
 
-		[Column(TypeName = "ntext")]
-		public string? Note { get; set; }
+        public decimal? Discount { get; set; }
 
-		public int? ProductId { get; set; }
-		[ForeignKey("ProductId")]
-		public virtual Product Product { get; set; }
+        [Required]
+        public decimal? Total
+        {
+            get
+            {
+                return Quantity * Price - Discount;
+            }
+        }
 
-		public int? OrderId { get; set; }
-		[ForeignKey("OrderId")]
-		public virtual Order Order { get; set; }
-	}
+        public string? Status { get; set; }
+
+        public DateTime? ReceivedDate { get; set; }
+
+        [ForeignKey("PorductId")]
+        public virtual Product? Product { get; set; }
+
+        [ForeignKey("OrderId")]
+        public virtual Order? Order { get; set; }
+    }
+
 }

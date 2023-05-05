@@ -6,37 +6,32 @@ namespace LaptopShop.Models.EF
 	[Table("Order")]
 	public class Order
 	{
+        [Key]
+        [Display(Name = "Id")]
+        public int OrderId { get; set; }
+
+        [Required]
+        public int AccountId { get; set; }
+
+        [Required]
+        public DateTime OrderDate { get; set; }
+
+        public DateTime? ShipDate { get; set; }
+
+        public bool? IsCancled { get; set; }
+
+        public bool? Paid { get; set; }
+
+        public string? Note { get; set; }
+
+        [ForeignKey("AccountId")]
+        public virtual Account? Account { get; set; }
+
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+
         public Order()
         {
-            this.OrderDetails = new HashSet<OrderDetail>();
+            OrderDetails = new HashSet<OrderDetail>();
         }
-
-        [Key]
-		public int Id { get; set; }
-
-		[Required(ErrorMessage = "This field is required!")]
-		[Column(TypeName = "nvarchar(50)")]
-		public string CustomerName { get; set; } // họ tên người nhận hàng
-
-		[Column(TypeName = "nvarchar(70)")]
-		public string CustomerEmail { get; set; } // email người nhận hàng
-
-		[Required(ErrorMessage = "This field is required!")]
-		[Column(TypeName = "nvarchar(20)")]
-		public string CustomerPhone { get; set; } // số điện thoại người nhận hàng
-
-		[Required(ErrorMessage = "This field is required!")]
-		[Column(TypeName = "nvarchar(250)")]
-		public string CustomerAddress { get; set; } // địa chỉ nhận hàng
-
-		[Required(ErrorMessage = "This field is required!")]
-        [DataType(DataType.Date)]
-        public DateTime OrderDate { get; set; } // ngày đặt hàng
-
-        [Required(ErrorMessage = "This field is required!")]
-        [Column(TypeName = "nvarchar(100)")]
-		public string? Status { get; set; } 
-
-		public virtual ICollection<OrderDetail> OrderDetails { get; set; }
-	}
+    }
 }

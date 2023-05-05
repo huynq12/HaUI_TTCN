@@ -16,14 +16,14 @@ builder.Services.AddDbContext<LaptopDbContext>(options =>
 	options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer_huy"));
 });
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
+/*builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 {
 	options.Password.RequireDigit = true;
 	options.Password.RequiredLength = 6;
 	options.Password.RequireLowercase = true;
 }).AddEntityFrameworkStores<LaptopDbContext>()
   .AddDefaultTokenProviders();
-
+*/
 /*builder.Services.AddAuthentication(auth =>
 {
 	auth.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -48,11 +48,11 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 
 var app = builder.Build();
 
-using (var scope = app.Services.CreateScope())
+/*using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     SeedData.InitializeCategory(services);
-}
+}*/
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
