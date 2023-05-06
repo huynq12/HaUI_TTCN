@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\haui_s6\\thuc_tap_chuyen_nganh\\HaUI_TTCN\\LaptopShop\\LaptopShop\\LaptopShop.csproj": {}
+    "D:\\HaUI\\Semester_6\\ThucTapChuyenNganh\\HaUI_TTCN\\LaptopShop\\LaptopShop\\LaptopShop.csproj": {}
   },
   "projects": {
-    "E:\\haui_s6\\thuc_tap_chuyen_nganh\\HaUI_TTCN\\LaptopShop\\LaptopShop\\LaptopShop.csproj": {
+    "D:\\HaUI\\Semester_6\\ThucTapChuyenNganh\\HaUI_TTCN\\LaptopShop\\LaptopShop\\LaptopShop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\haui_s6\\thuc_tap_chuyen_nganh\\HaUI_TTCN\\LaptopShop\\LaptopShop\\LaptopShop.csproj",
+        "projectUniqueName": "D:\\HaUI\\Semester_6\\ThucTapChuyenNganh\\HaUI_TTCN\\LaptopShop\\LaptopShop\\LaptopShop.csproj",
         "projectName": "LaptopShop",
-        "projectPath": "E:\\haui_s6\\thuc_tap_chuyen_nganh\\HaUI_TTCN\\LaptopShop\\LaptopShop\\LaptopShop.csproj",
-        "packagesPath": "C:\\Users\\ngqua\\.nuget\\packages\\",
-        "outputPath": "E:\\haui_s6\\thuc_tap_chuyen_nganh\\HaUI_TTCN\\LaptopShop\\LaptopShop\\obj\\",
+        "projectPath": "D:\\HaUI\\Semester_6\\ThucTapChuyenNganh\\HaUI_TTCN\\LaptopShop\\LaptopShop\\LaptopShop.csproj",
+        "packagesPath": "C:\\Users\\huyho\\.nuget\\packages\\",
+        "outputPath": "D:\\HaUI\\Semester_6\\ThucTapChuyenNganh\\HaUI_TTCN\\LaptopShop\\LaptopShop\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ngqua\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\huyho\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -45,6 +48,10 @@
               "version": "[6.0.15, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.15, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
               "target": "Package",
               "version": "[6.0.15, )"
             },
@@ -82,7 +89,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

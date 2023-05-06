@@ -1,19 +1,15 @@
 using LaptopShop.Data;
 using LaptopShop.Models;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
 builder.Services.AddDbContext<LaptopDbContext>(options =>
 {
-	options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer_huy"));
+	options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer_Hoang"));
 });
 
 /*builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
@@ -48,11 +44,11 @@ builder.Services.AddDbContext<LaptopDbContext>(options =>
 
 var app = builder.Build();
 
-/*using (var scope = app.Services.CreateScope())
+using (var scope = app.Services.CreateScope())
 {
-    var services = scope.ServiceProvider;
-    SeedData.InitializeCategory(services);
-}*/
+	var services = scope.ServiceProvider;
+	SeedData.Initialize(services);
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -69,8 +65,12 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapControllerRoute(
-	name: "default",
-	pattern: "{controller=Home}/{action=Index}/{id?}");
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+      name: "areas",
+      pattern: "{area=Customer}/{controller=Home}/{action=Index}/{id?}"
+    );
+});
 
 app.Run();

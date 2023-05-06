@@ -3,43 +3,20 @@ using System.ComponentModel.DataAnnotations;
 
 namespace LaptopShop.Models.EF
 {
-	[Table("OrderDetail")]
 	public class OrderDetail
 	{
         [Key]
-        [Display(Name = "Id")]
         public int OrderDetailId { get; set; }
-
-        [Required]
-        public int ProductId { get; set; }
-
-        [Required]
-        public int OrderId { get; set; }
-
-        [Required]
-        public int Quantity { get; set; }
-
-        [Required]
+        public int Quantity { get; set; } // số lượng sản phẩm trong đơn hàng
         public decimal Price { get; set; }
+        public decimal Total { get { return Quantity * Price; } }
+        public DateTime RecievedDate { get; set; } // ngày giao hàng thành công
+        public bool? Status { get; set; } // false-đang giao, true-giao hàng thành công
+        public int? OrderId { get; set; }
+        public int? ProductId { get; set; }
 
-        public decimal? Discount { get; set; }
-
-        [Required]
-        public decimal? Total
-        {
-            get
-            {
-                return Quantity * Price - Discount;
-            }
-        }
-
-        public string? Status { get; set; }
-
-        public DateTime? ReceivedDate { get; set; }
-
-        [ForeignKey("PorductId")]
+        [ForeignKey("ProductId")]
         public virtual Product? Product { get; set; }
-
         [ForeignKey("OrderId")]
         public virtual Order? Order { get; set; }
     }

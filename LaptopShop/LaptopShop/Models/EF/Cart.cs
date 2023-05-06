@@ -6,10 +6,19 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LaptopShop.Models.EF
 {
-	[Table("Cart")]
 	public class Cart
 	{
-		public int CartId { get; set; }
-		public decimal Total { get; set; }
-	}
+        [Key]
+        public int CartId { get; set; }
+        public decimal Total { get; set; }
+        
+        public int? CustomerId { get; set; }
+        public virtual Customer? Customer { get; set; }
+        public virtual ICollection<CartItem> CartItems { get; set; }
+
+        public Cart()
+        {
+            this.CartItems = new HashSet<CartItem>();
+        }
+    }
 }
