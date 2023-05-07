@@ -11,26 +11,6 @@ namespace LaptopShop.Models
             using (var context = new LaptopDbContext(
                 serviceProvider.GetRequiredService<DbContextOptions<LaptopDbContext>>()))
             {
-                // nếu bảng Role chưa có dữ liệu thì thêm dữ liệu
-                if (!context.Roles.Any())
-                {
-                    context.Roles.AddRangeAsync(
-                       new Role { RoleName = "Admin", Description = "Quản trị viên" },
-                       new Role { RoleName = "Khách hàng", Description = "Khách hàng" }
-                    );
-                    context.SaveChanges();
-                }
-
-                // nếu bảng Account chưa có dữ liệu thì thêm dữ liệu
-                if (!context.Accounts.Any())
-                {
-                    context.Accounts.AddRangeAsync(
-                        new Account { UserName = "admin", Password = "admin123", Avatar = "admin.png", Status = "Đang hoạt động", RoleId = 1 },
-                        new Account { UserName = "user", Password = "user123", Avatar = "user.png", Status = "Đang hoạt động", RoleId = 2 }
-                    );
-                    context.SaveChanges();
-                }
-
                 // nếu bảng Category chưa có dữ liệu thì thêm dữ liệu
                 if (!context.Categories.Any())
                 {
@@ -175,91 +155,98 @@ namespace LaptopShop.Models
             Random random = new Random();
             for (int i = 1; i <= n; i++)
             {
-                Product Product = new Product();
+                Product product = new Product();
                 // Brand
                 int x = random.Next(10);
                 x = x * i % 8;
-                Product.Brand = Brands[x];
-                Product.OperatingSystem = "Windows 11 Home"; // Operating System
-                // Name
+                product.Brand = Brands[x];
+                product.OperatingSystem = "Windows 11 Home"; // Operating System
                 x %= 5;
-                switch (Product.Brand)
+                switch (product.Brand)
                 {
                     case "Acer":
-                        Product.Name = AcerLaptops[x];
+                        product.Name = AcerLaptops[x]; // Name
+                        product.Image = "~/AdminContent/images/laptops/" + product.Brand + ".jpg"; // image
                         break;
                     case "Asus":
-                        Product.Name = AsusLaptops[x];
+                        product.Name = AsusLaptops[x]; // Name
+                        product.Image = "~/AdminContent/images/laptops/" + product.Brand + ".jpg"; // image
                         break;
                     case "Dell":
-                        Product.Name = DellLaptops[x];
+                        product.Name = DellLaptops[x]; // Name
+                        product.Image = "~/AdminContent/images/laptops/" + product.Brand + ".jpg"; // image
                         break;
                     case "HP":
-                        Product.Name = HPLaptops[x];
+                        product.Name = HPLaptops[x]; // Name
+                        product.Image = "~/AdminContent/images/laptops/" + product.Brand + ".jpg"; // image
                         break;
                     case "Lenovo":
-                        Product.Name = LenovoLaptops[x];
+                        product.Name = LenovoLaptops[x]; // Name
+                        product.Image = "~/AdminContent/images/laptops/" + product.Brand + ".jpg"; // image
                         break;
                     case "Microsoft":
-                        Product.Name = SurfaceLaptops[x];
+                        product.Name = SurfaceLaptops[x]; // Name
+                        product.Image = "~/AdminContent/images/laptops/" + product.Brand + ".jpg"; // image
                         break;
                     case "MSI":
-                        Product.Name = MSILaptops[x];
+                        product.Name = MSILaptops[x]; // Name
+                        product.Image = "~/AdminContent/images/laptops/" + product.Brand + ".jpg"; // image
                         break;
                     default:
-                        Product.Name = MacbookLaptops[x];
-                        Product.OperatingSystem = "MacOS Ventura"; // Operating System
+                        product.Name = MacbookLaptops[x];
+                        product.Image = "~/AdminContent/images/laptops/" + product.Brand + ".jpg"; // image
+                        product.OperatingSystem = "MacOS Ventura"; // Operating System
                         break;
                 }
                 // Monitor
                 x = random.Next(10);
                 x = x * i % 8;
-                Product.Monitor = Monitors[x];
+                product.Monitor = Monitors[x];
                 // CPU
                 x = random.Next(10);
                 x = x * i % 8;
-                Product.CPU = CPUs[x];
+                product.CPU = CPUs[x];
                 // Storage
                 x = random.Next(10);
                 x = x * i % 4;
-                Product.Storage = Storages[x];
+                product.Storage = Storages[x];
                 // RAM
                 x = random.Next(10);
                 x = x * i % 6;
-                Product.RAM = RAMs[x];
+                product.RAM = RAMs[x];
                 // Graphics
                 x = random.Next(10);
                 x = x * i % 7;
-                Product.Graphics = Graphics[x];
+                product.Graphics = Graphics[x];
                 // Weight
-                Product.Weight = (x / 10.0) + 1.5; 
+                product.Weight = (x / 10.0) + 1.5; 
                 // Color
                 x = random.Next(10);
                 x = x * i % 6;
-                Product.Color = Colors[x];
+                product.Color = Colors[x];
                 // Battery Infor
                 x = random.Next(10);
                 x = x * i % 5;
-                Product.Battery = Batteries[x];
+                product.Battery = Batteries[x];
                 // Description
                 x = random.Next(10);
                 x = x * i % 6;
-                Product.Description = Desciptions[x];
+                product.Description = Desciptions[x];
                 // Price
                 x = random.Next(10);
                 x = x * i % 8;
-                Product.Price = Prices[x];
+                product.Price = Prices[x];
                 // Quantity
-                Product.Quantity = x + 10;
+                product.Quantity = x + 10;
                 // Warranty
-                Product.Warranty = (byte)(x + 12); 
+                product.Warranty = (byte)(x + 12); 
                 // Category Id
                 x = random.Next(10);
                 x = x * i % categories.Count();
-                Product.Category = categories[x];
-                Product.CategoryId = Product.Category.CategoryId;
+                product.Category = categories[x];
+                product.CategoryId = product.Category.CategoryId;
 
-                Laptops.Add(Product);
+                Laptops.Add(product);
             }
             return Laptops;
         }

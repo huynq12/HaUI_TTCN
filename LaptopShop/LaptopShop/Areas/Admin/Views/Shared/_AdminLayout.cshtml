@@ -33,7 +33,9 @@
 	<!-- content -->
 	<div class="app-wrapper">
 		<!-- render body -->
-		@RenderBody()
+		<div class="app-content pt-3 p-md-3 p-lg-4">
+			@RenderBody()
+		</div>
 
 		<!-- footer -->
 		@await Html.PartialAsync("_FooterPartial.cshtml")
@@ -46,7 +48,7 @@
 	<!-- Page Specific JS -->
 	<script src="~/AdminContent/js/app.js"></script>
 
-	@RenderSection("Scripts", required: false)
+	@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
 

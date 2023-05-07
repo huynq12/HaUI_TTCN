@@ -16,36 +16,12 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = D:\HaUI\Semester_6\ThucTapChuyenNganh\HaUI_TTCN\LaptopShop\LaptopShop
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/HaUI/Semester_6/ThucTapChuyenNganh/HaUI_TTCN/LaptopShop/LaptopShop/Areas/Admin/Views/Account/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWNjb3VudFxDcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/HaUI/Semester_6/ThucTapChuyenNganh/HaUI_TTCN/LaptopShop/LaptopShop/Areas/Admin/Views/Account/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWNjb3VudFxEZWxldGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/HaUI/Semester_6/ThucTapChuyenNganh/HaUI_TTCN/LaptopShop/LaptopShop/Areas/Admin/Views/Account/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWNjb3VudFxEZXRhaWxzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/HaUI/Semester_6/ThucTapChuyenNganh/HaUI_TTCN/LaptopShop/LaptopShop/Areas/Admin/Views/Account/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWNjb3VudFxFZGl0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/HaUI/Semester_6/ThucTapChuyenNganh/HaUI_TTCN/LaptopShop/LaptopShop/Areas/Admin/Views/Account/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWNjb3VudFxJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/HaUI/Semester_6/ThucTapChuyenNganh/HaUI_TTCN/LaptopShop/LaptopShop/Areas/Admin/Views/Category/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/HaUI/Semester_6/ThucTapChuyenNganh/HaUI_TTCN/LaptopShop/LaptopShop/Areas/Admin/Views/Category/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcRGVsZXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/HaUI/Semester_6/ThucTapChuyenNganh/HaUI_TTCN/LaptopShop/LaptopShop/Areas/Admin/Views/Category/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/HaUI/Semester_6/ThucTapChuyenNganh/HaUI_TTCN/LaptopShop/LaptopShop/Areas/Admin/Views/Category/Edit.cshtml]
@@ -78,26 +54,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/HaUI/Semester_6/ThucTapChuyenNganh/HaUI_TTCN/LaptopShop/LaptopShop/Areas/Admin/Views/Product/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/HaUI/Semester_6/ThucTapChuyenNganh/HaUI_TTCN/LaptopShop/LaptopShop/Areas/Admin/Views/Role/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9sZVxDcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/HaUI/Semester_6/ThucTapChuyenNganh/HaUI_TTCN/LaptopShop/LaptopShop/Areas/Admin/Views/Role/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9sZVxEZWxldGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/HaUI/Semester_6/ThucTapChuyenNganh/HaUI_TTCN/LaptopShop/LaptopShop/Areas/Admin/Views/Role/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9sZVxEZXRhaWxzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/HaUI/Semester_6/ThucTapChuyenNganh/HaUI_TTCN/LaptopShop/LaptopShop/Areas/Admin/Views/Role/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9sZVxFZGl0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/HaUI/Semester_6/ThucTapChuyenNganh/HaUI_TTCN/LaptopShop/LaptopShop/Areas/Admin/Views/Role/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9sZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/HaUI/Semester_6/ThucTapChuyenNganh/HaUI_TTCN/LaptopShop/LaptopShop/Areas/Admin/Views/Shared/Error.cshtml]

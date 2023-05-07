@@ -12,8 +12,6 @@ namespace LaptopShop.Models.EF
         public bool? IsCancled { get; set; } // còn đơn || đã huỷ đơn
         public int? CustomerId { get; set; }
 
-        [ForeignKey("CustomerId")]
-        public virtual Customer? Customer { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
         public Order()

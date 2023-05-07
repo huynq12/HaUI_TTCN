@@ -1,15 +1,24 @@
 ﻿@model LaptopShop.Models.EF.Product
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Thông tin chi tiết sản phẩm";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Details</h1>
+<!-- breadcrumb start -->
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+        <li class="breadcrumb-item"><a asp-controller="Product" asp-action="Index">Quản lý danh mục</a></li>
+        <li class="breadcrumb-item active" aria-current="page">@ViewData["Title"]</li>
+    </ol>
+</nav>
+<!-- breadcrumb end-->
+
+<h4>@ViewData["Title"]</h4>
+<hr />
 
 <div>
-    <h4>Product</h4>
-    <hr />
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Name)
@@ -116,6 +125,8 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.ProductId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <div class="btn-group" role="group" >
+        <a class="btn btn-primary" asp-action="Edit">Sửa</a>
+        <a class="btn btn-secondary" asp-action="Index">Về danh sách</a>
+    </div>
 </div>

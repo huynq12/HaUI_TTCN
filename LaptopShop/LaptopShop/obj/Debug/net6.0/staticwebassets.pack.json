@@ -9,16 +9,48 @@
       "PackagePath": "staticwebassets\\AdminContent\\css\\portal.css"
     },
     {
-      "Id": "D:\\HaUI\\Semester_6\\ThucTapChuyenNganh\\HaUI_TTCN\\LaptopShop\\LaptopShop\\wwwroot\\AdminContent\\images\\app-logo.svg",
-      "PackagePath": "staticwebassets\\AdminContent\\images\\app-logo.svg"
-    },
-    {
       "Id": "D:\\HaUI\\Semester_6\\ThucTapChuyenNganh\\HaUI_TTCN\\LaptopShop\\LaptopShop\\wwwroot\\AdminContent\\images\\avatars\\admin\\admin.png",
       "PackagePath": "staticwebassets\\AdminContent\\images\\avatars\\admin\\admin.png"
     },
     {
       "Id": "D:\\HaUI\\Semester_6\\ThucTapChuyenNganh\\HaUI_TTCN\\LaptopShop\\LaptopShop\\wwwroot\\AdminContent\\images\\avatars\\user\\user.jpg",
       "PackagePath": "staticwebassets\\AdminContent\\images\\avatars\\user\\user.jpg"
+    },
+    {
+      "Id": "D:\\HaUI\\Semester_6\\ThucTapChuyenNganh\\HaUI_TTCN\\LaptopShop\\LaptopShop\\wwwroot\\AdminContent\\images\\laptops\\Acer.jpg",
+      "PackagePath": "staticwebassets\\AdminContent\\images\\laptops\\Acer.jpg"
+    },
+    {
+      "Id": "D:\\HaUI\\Semester_6\\ThucTapChuyenNganh\\HaUI_TTCN\\LaptopShop\\LaptopShop\\wwwroot\\AdminContent\\images\\laptops\\Apple.jpg",
+      "PackagePath": "staticwebassets\\AdminContent\\images\\laptops\\Apple.jpg"
+    },
+    {
+      "Id": "D:\\HaUI\\Semester_6\\ThucTapChuyenNganh\\HaUI_TTCN\\LaptopShop\\LaptopShop\\wwwroot\\AdminContent\\images\\laptops\\Asus.jpg",
+      "PackagePath": "staticwebassets\\AdminContent\\images\\laptops\\Asus.jpg"
+    },
+    {
+      "Id": "D:\\HaUI\\Semester_6\\ThucTapChuyenNganh\\HaUI_TTCN\\LaptopShop\\LaptopShop\\wwwroot\\AdminContent\\images\\laptops\\Dell.jpg",
+      "PackagePath": "staticwebassets\\AdminContent\\images\\laptops\\Dell.jpg"
+    },
+    {
+      "Id": "D:\\HaUI\\Semester_6\\ThucTapChuyenNganh\\HaUI_TTCN\\LaptopShop\\LaptopShop\\wwwroot\\AdminContent\\images\\laptops\\HP.jpg",
+      "PackagePath": "staticwebassets\\AdminContent\\images\\laptops\\HP.jpg"
+    },
+    {
+      "Id": "D:\\HaUI\\Semester_6\\ThucTapChuyenNganh\\HaUI_TTCN\\LaptopShop\\LaptopShop\\wwwroot\\AdminContent\\images\\laptops\\Lenovo.jpg",
+      "PackagePath": "staticwebassets\\AdminContent\\images\\laptops\\Lenovo.jpg"
+    },
+    {
+      "Id": "D:\\HaUI\\Semester_6\\ThucTapChuyenNganh\\HaUI_TTCN\\LaptopShop\\LaptopShop\\wwwroot\\AdminContent\\images\\laptops\\MSI.jpg",
+      "PackagePath": "staticwebassets\\AdminContent\\images\\laptops\\MSI.jpg"
+    },
+    {
+      "Id": "D:\\HaUI\\Semester_6\\ThucTapChuyenNganh\\HaUI_TTCN\\LaptopShop\\LaptopShop\\wwwroot\\AdminContent\\images\\laptops\\Microsoft.jpg",
+      "PackagePath": "staticwebassets\\AdminContent\\images\\laptops\\Microsoft.jpg"
+    },
+    {
+      "Id": "D:\\HaUI\\Semester_6\\ThucTapChuyenNganh\\HaUI_TTCN\\LaptopShop\\LaptopShop\\wwwroot\\AdminContent\\images\\logo\\logo.png",
+      "PackagePath": "staticwebassets\\AdminContent\\images\\logo\\logo.png"
     },
     {
       "Id": "D:\\HaUI\\Semester_6\\ThucTapChuyenNganh\\HaUI_TTCN\\LaptopShop\\LaptopShop\\wwwroot\\AdminContent\\js\\app.js",

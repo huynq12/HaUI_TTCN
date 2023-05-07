@@ -1,16 +1,23 @@
 ﻿@model LaptopShop.Models.EF.Product
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Xác nhận xoá sản phẩm";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Delete</h1>
+<!-- breadcrumb start -->
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+        <li class="breadcrumb-item"><a asp-controller="Product" asp-action="Index">Quản lý danh mục</a></li>
+        <li class="breadcrumb-item active" aria-current="page">@ViewData["Title"]</li>
+    </ol>
+</nav>
+<!-- breadcrumb end-->
 
-<h3>Are you sure you want to delete this?</h3>
+<h4>@ViewData["Title"]</h4>
+<hr />
 <div>
-    <h4>Product</h4>
-    <hr />
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Name)
@@ -118,7 +125,9 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="ProductId" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <div class="btn-group" role="group" >
+            <button type="submit" class="btn btn-danger">Xoá</button>
+            <a class="btn btn-secondary" asp-action="Index">Về danh sách</a>
+        </div>
     </form>
 </div>

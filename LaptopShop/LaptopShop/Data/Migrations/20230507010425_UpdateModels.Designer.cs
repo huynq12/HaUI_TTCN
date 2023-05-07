@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LaptopShop.Migrations
 {
     [DbContext(typeof(LaptopDbContext))]
-    [Migration("20230506152218_UpdateModels")]
+    [Migration("20230507010425_UpdateModels")]
     partial class UpdateModels
     {
         /// <inheritdoc />
@@ -25,38 +25,6 @@ namespace LaptopShop.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("LaptopShop.Models.EF.Account", b =>
-                {
-                    b.Property<int>("AccountId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AccountId"));
-
-                    b.Property<string>("Avatar")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("RoleId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Status")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("AccountId");
-
-                    b.HasIndex("RoleId");
-
-                    b.ToTable("Accounts");
-                });
-
             modelBuilder.Entity("LaptopShop.Models.EF.Cart", b =>
                 {
                     b.Property<int>("CartId")
@@ -65,15 +33,10 @@ namespace LaptopShop.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CartId"));
 
-                    b.Property<int?>("CustomerId")
-                        .HasColumnType("int");
-
                     b.Property<decimal>("Total")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("CartId");
-
-                    b.HasIndex("CustomerId");
 
                     b.ToTable("Carts");
                 });
@@ -130,38 +93,6 @@ namespace LaptopShop.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("LaptopShop.Models.EF.Customer", b =>
-                {
-                    b.Property<int>("CustomerId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CustomerId"));
-
-                    b.Property<int?>("AccountId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DateOfBirth")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("FullName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Phone")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("CustomerId");
-
-                    b.HasIndex("AccountId");
-
-                    b.ToTable("Customers");
-                });
-
             modelBuilder.Entity("LaptopShop.Models.EF.Order", b =>
                 {
                     b.Property<int>("OrderId")
@@ -169,9 +100,6 @@ namespace LaptopShop.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderId"));
-
-                    b.Property<int?>("CartId")
-                        .HasColumnType("int");
 
                     b.Property<int?>("CustomerId")
                         .HasColumnType("int");
@@ -186,10 +114,6 @@ namespace LaptopShop.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("OrderId");
-
-                    b.HasIndex("CartId");
-
-                    b.HasIndex("CustomerId");
 
                     b.ToTable("Orders");
                 });
@@ -296,44 +220,6 @@ namespace LaptopShop.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("LaptopShop.Models.EF.Role", b =>
-                {
-                    b.Property<int>("RoleId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoleId"));
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RoleName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("RoleId");
-
-                    b.ToTable("Roles");
-                });
-
-            modelBuilder.Entity("LaptopShop.Models.EF.Account", b =>
-                {
-                    b.HasOne("LaptopShop.Models.EF.Role", "Role")
-                        .WithMany()
-                        .HasForeignKey("RoleId");
-
-                    b.Navigation("Role");
-                });
-
-            modelBuilder.Entity("LaptopShop.Models.EF.Cart", b =>
-                {
-                    b.HasOne("LaptopShop.Models.EF.Customer", "Customer")
-                        .WithMany()
-                        .HasForeignKey("CustomerId");
-
-                    b.Navigation("Customer");
-                });
-
             modelBuilder.Entity("LaptopShop.Models.EF.CartItem", b =>
                 {
                     b.HasOne("LaptopShop.Models.EF.Cart", "Cart")
@@ -347,28 +233,6 @@ namespace LaptopShop.Migrations
                     b.Navigation("Cart");
 
                     b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("LaptopShop.Models.EF.Customer", b =>
-                {
-                    b.HasOne("LaptopShop.Models.EF.Account", "Account")
-                        .WithMany()
-                        .HasForeignKey("AccountId");
-
-                    b.Navigation("Account");
-                });
-
-            modelBuilder.Entity("LaptopShop.Models.EF.Order", b =>
-                {
-                    b.HasOne("LaptopShop.Models.EF.Customer", null)
-                        .WithMany("Orders")
-                        .HasForeignKey("CartId");
-
-                    b.HasOne("LaptopShop.Models.EF.Customer", "Customer")
-                        .WithMany()
-                        .HasForeignKey("CustomerId");
-
-                    b.Navigation("Customer");
                 });
 
             modelBuilder.Entity("LaptopShop.Models.EF.OrderDetail", b =>
@@ -403,11 +267,6 @@ namespace LaptopShop.Migrations
             modelBuilder.Entity("LaptopShop.Models.EF.Category", b =>
                 {
                     b.Navigation("Products");
-                });
-
-            modelBuilder.Entity("LaptopShop.Models.EF.Customer", b =>
-                {
-                    b.Navigation("Orders");
                 });
 
             modelBuilder.Entity("LaptopShop.Models.EF.Order", b =>

@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LaptopShop.Data;
 using LaptopShop.Models.EF;
+using X.PagedList;
+using X.PagedList.Mvc.Core;
 
 namespace LaptopShop.Areas.Admin.Controllers
 {
@@ -21,10 +23,10 @@ namespace LaptopShop.Areas.Admin.Controllers
         }
 
         // GET: Admin/Product
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? page)
         {
-            var laptopDbContext = _context.Products.Include(p => p.Category);
-            return View(await laptopDbContext.ToListAsync());
+            var products = _context.Products.Include(p => p.Category).ToList().ToPagedListAsync(page ?? 1, 5);
+            return View(await products);
         }
 
         // GET: Admin/Product/Details/5

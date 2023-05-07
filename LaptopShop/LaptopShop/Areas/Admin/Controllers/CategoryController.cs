@@ -28,24 +28,6 @@ namespace LaptopShop.Areas.Admin.Controllers
                           Problem("Entity set 'LaptopDbContext.Categories'  is null.");
         }
 
-        // GET: Admin/Category/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Categories == null)
-            {
-                return NotFound();
-            }
-
-            var category = await _context.Categories
-                .FirstOrDefaultAsync(m => m.CategoryId == id);
-            if (category == null)
-            {
-                return NotFound();
-            }
-
-            return View(category);
-        }
-
         // GET: Admin/Category/Create
         public IActionResult Create()
         {
@@ -85,7 +67,7 @@ namespace LaptopShop.Areas.Admin.Controllers
         // POST: Admin/Category/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Category category)
+        public async Task<IActionResult> Edit(int id,Category category)
         {
             if (id != category.CategoryId)
             {
@@ -143,13 +125,21 @@ namespace LaptopShop.Areas.Admin.Controllers
                 return Problem("Entity set 'LaptopDbContext.Categories'  is null.");
             }
             var category = await _context.Categories.FindAsync(id);
-            if (category != null)
+            try
             {
-                _context.Categories.Remove(category);
+                if (category != null)
+                {
+                    _context.Categories.Remove(category);
+                }
+
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
             }
-            
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            catch (Exception ex)
+            {
+                ViewBag.error = "KHÔNG xóa được! " + ex.Message;
+                return View("Delete", category);
+            }
         }
 
         private bool CategoryExists(int id)
