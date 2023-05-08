@@ -7,9 +7,9 @@ namespace LaptopShop.Models.EF
 	{
         [Key]
         public int ProductId { get; set; }
-        [Required]
         public string? Name { get; set; }
         public string? Brand { get; set; }
+        [Display(Name = "OS")]
         public string? OperatingSystem { get; set; }
         public string? Monitor { get; set; }
         public string? CPU { get; set; }
@@ -22,8 +22,7 @@ namespace LaptopShop.Models.EF
         public byte? Warranty { get; set; } // số tháng bảo hành
         public string? Description { get; set; }
         public string? Image { get; set; }
-        [Required]
-        public decimal Price { get; set; }
+        public decimal? Price { get; set; }
         public int? Quantity { get; set; } // số lượng còn trong kho
         [Display(Name = "Category Name")]
         public int? CategoryId { get; set; }
@@ -31,7 +30,6 @@ namespace LaptopShop.Models.EF
         public virtual Category? Category { get; set; }
         public virtual ICollection<CartItem> CartItems { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
-
 
         public Product()
         {

@@ -166,35 +166,35 @@ namespace LaptopShop.Models
                 {
                     case "Acer":
                         product.Name = AcerLaptops[x]; // Name
-                        product.Image = "~/AdminContent/images/laptops/" + product.Brand + ".jpg"; // image
+                        product.Image = "/img/laptops/" + product.Brand + ".jpg"; // image
                         break;
                     case "Asus":
                         product.Name = AsusLaptops[x]; // Name
-                        product.Image = "~/AdminContent/images/laptops/" + product.Brand + ".jpg"; // image
+                        product.Image = "/img/laptops/" + product.Brand + ".jpg"; // image
                         break;
                     case "Dell":
                         product.Name = DellLaptops[x]; // Name
-                        product.Image = "~/AdminContent/images/laptops/" + product.Brand + ".jpg"; // image
+                        product.Image = "/img/laptops/" + product.Brand + ".jpg"; // image
                         break;
                     case "HP":
                         product.Name = HPLaptops[x]; // Name
-                        product.Image = "~/AdminContent/images/laptops/" + product.Brand + ".jpg"; // image
+                        product.Image = "/img/laptops/" + product.Brand + ".jpg"; // image
                         break;
                     case "Lenovo":
                         product.Name = LenovoLaptops[x]; // Name
-                        product.Image = "~/AdminContent/images/laptops/" + product.Brand + ".jpg"; // image
+                        product.Image = "/img/laptops/" + product.Brand + ".jpg"; // image
                         break;
                     case "Microsoft":
                         product.Name = SurfaceLaptops[x]; // Name
-                        product.Image = "~/AdminContent/images/laptops/" + product.Brand + ".jpg"; // image
+                        product.Image = "/img/laptops/" + product.Brand + ".jpg"; // image
                         break;
                     case "MSI":
                         product.Name = MSILaptops[x]; // Name
-                        product.Image = "~/AdminContent/images/laptops/" + product.Brand + ".jpg"; // image
+                        product.Image = "/img/laptops/" + product.Brand + ".jpg"; // image
                         break;
                     default:
                         product.Name = MacbookLaptops[x];
-                        product.Image = "~/AdminContent/images/laptops/" + product.Brand + ".jpg"; // image
+                        product.Image = "/img/laptops/" + product.Brand + ".jpg"; // image
                         product.OperatingSystem = "MacOS Ventura"; // Operating System
                         break;
                 }

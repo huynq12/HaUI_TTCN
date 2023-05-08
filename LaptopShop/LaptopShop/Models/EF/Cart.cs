@@ -10,7 +10,7 @@ namespace LaptopShop.Models.EF
 	{
         [Key]
         public int CartId { get; set; }
-        public decimal Total { get; set; }
+        public decimal? Total { get; set; }
         
         public virtual ICollection<CartItem> CartItems { get; set; }
 

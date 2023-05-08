@@ -7,8 +7,8 @@ namespace LaptopShop.Models.EF
 	{
         [Key]
         public int CartItemId { get; set; }
-        public int Quantity { get; set; } // số lượng sản phẩm trong giỏ hàng
-        public decimal Price { get; set; }
+        public int? Quantity { get; set; } // số lượng sản phẩm trong giỏ hàng
+        public decimal? Price { get; set; }
         public int? CartId { get; set; }
         public int? ProductId { get; set; }
 

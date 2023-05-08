@@ -32,8 +32,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/HaUI/Semester_6/ThucTapChuyenNganh/HaUI_TTCN/LaptopShop/LaptopShop/Areas/Admin/Views/Home/Account.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxBY2NvdW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/HaUI/Semester_6/ThucTapChuyenNganh/HaUI_TTCN/LaptopShop/LaptopShop/Areas/Admin/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/HaUI/Semester_6/ThucTapChuyenNganh/HaUI_TTCN/LaptopShop/LaptopShop/Areas/Admin/Views/Home/Settings.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxTZXR0aW5ncy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/HaUI/Semester_6/ThucTapChuyenNganh/HaUI_TTCN/LaptopShop/LaptopShop/Areas/Admin/Views/Order/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcT3JkZXJcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/HaUI/Semester_6/ThucTapChuyenNganh/HaUI_TTCN/LaptopShop/LaptopShop/Areas/Admin/Views/Product/Create.cshtml]
@@ -60,16 +72,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HaUI/Semester_6/ThucTapChuyenNganh/HaUI_TTCN/LaptopShop/LaptopShop/Areas/Admin/Views/Shared/_FooterPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9Gb290ZXJQYXJ0aWFsLmNzaHRtbA==
+[D:/HaUI/Semester_6/ThucTapChuyenNganh/HaUI_TTCN/LaptopShop/LaptopShop/Areas/Admin/Views/Shared/_AdminFooterPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9BZG1pbkZvb3RlclBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HaUI/Semester_6/ThucTapChuyenNganh/HaUI_TTCN/LaptopShop/LaptopShop/Areas/Admin/Views/Shared/_HeaderPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9IZWFkZXJQYXJ0aWFsLmNzaHRtbA==
+[D:/HaUI/Semester_6/ThucTapChuyenNganh/HaUI_TTCN/LaptopShop/LaptopShop/Areas/Admin/Views/Shared/_AdminHeaderPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9BZG1pbkhlYWRlclBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HaUI/Semester_6/ThucTapChuyenNganh/HaUI_TTCN/LaptopShop/LaptopShop/Areas/Admin/Views/Shared/_SideBarPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9TaWRlQmFyUGFydGlhbC5jc2h0bWw=
+[D:/HaUI/Semester_6/ThucTapChuyenNganh/HaUI_TTCN/LaptopShop/LaptopShop/Areas/Admin/Views/Shared/_AdminSideBarPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9BZG1pblNpZGVCYXJQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/HaUI/Semester_6/ThucTapChuyenNganh/HaUI_TTCN/LaptopShop/LaptopShop/Areas/Admin/Views/Shared/_ValidationScriptsPartial.cshtml]
