@@ -9,5 +9,15 @@ namespace LaptopShop.Areas.Customer.Controllers
         {
             return View();
         }
+
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        public IActionResult SignUp()
+        {
+            return View();
+        }
     }
 }
