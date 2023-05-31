@@ -11,7 +11,6 @@ namespace LaptopShop.Models.EF
         public bool? Paid { get; set; }
         public string? Note { get; set; }
         public string? Status { get; set; }
-		public int? CustomerId { get; set; }
 
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
