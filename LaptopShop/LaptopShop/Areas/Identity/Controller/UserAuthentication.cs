@@ -2,6 +2,7 @@
 using LaptopShop.Models.ViewModels;
 using LaptopShop.Repositories;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,9 +12,12 @@ namespace LaptopShop.Areas.Identity
 	public class UserAuthentication : Controller
 	{
 		private readonly IUserAuthenticationService _authService;
-		public UserAuthentication(IUserAuthenticationService authService)
+		private readonly NavigationManager _navigationManager;
+
+		public UserAuthentication(IUserAuthenticationService authService,NavigationManager navigation)
 		{
 			this._authService = authService;
+			_navigationManager = navigation;
 		}
 
 
@@ -31,7 +35,7 @@ namespace LaptopShop.Areas.Identity
 			var result = await _authService.LoginAsync(model);
 			if (result.StatusCode == 1)
 			{
-				return RedirectToAction("Index", "Home");
+				return RedirectToAction("Index","Home",new {area = "Customer"}	);
 			}
 			else
 			{
