@@ -21,8 +21,6 @@ namespace LaptopShop.Areas.Customer.Controllers
             _context = context;
         }
 
-
-
         public IActionResult Index()
          {
             var listProduct = _context.Products.Include(x => x.Category).Select(x => new ProductDto
@@ -36,16 +34,6 @@ namespace LaptopShop.Areas.Customer.Controllers
              return View(listProduct);
          }
 
-         public IActionResult Login()
-         {
-             return View();
-         }
-
-        public IActionResult SignUp()
-        {
-            return View();
-
-        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
