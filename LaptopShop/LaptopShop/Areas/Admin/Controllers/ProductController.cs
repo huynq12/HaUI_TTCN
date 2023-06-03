@@ -23,10 +23,38 @@ namespace LaptopShop.Areas.Admin.Controllers
         }
 
         // GET: Admin/Product
-        public async Task<IActionResult> Index(int? page)
+        public async Task<IActionResult> Index(string searchString, string currentFilter, string sortOrder, int? page)
         {
-            var products = _context.Products.Include(p => p.Category).ToList().ToPagedListAsync(page ?? 1, 5);
-            return View(await products);
+            // get products
+            var products = _context.Products.Include(p => p.Category).ToList();
+
+            // get products based on current filter
+            if (searchString != null) { page = 1; }
+            else { searchString = currentFilter; }
+            ViewBag.CurrentFilter = searchString;
+
+            // filter products based on search query
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                products = products.Where(p => p.Name.Contains(searchString)).ToList();
+            }
+
+            // determine sort order
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.SortByName = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.SortByPrice = (sortOrder == "price") ? "price_desc" : "price";
+
+            // sort products based on the sort order
+            switch (sortOrder)
+            {
+                case "":
+                    
+                    break;
+                default:
+                    break;
+            }
+
+            return View(await products.ToPagedListAsync(page ?? 1, 5));
         }
 
         // GET: Admin/Product/Details/5

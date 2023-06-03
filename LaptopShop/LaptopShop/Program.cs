@@ -16,7 +16,7 @@ builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
 builder.Services.AddDbContext<LaptopDbContext>(options =>
 {
-	options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer_huy"));
+	options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer_Hoang"));
 });
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<LaptopDbContext>()
