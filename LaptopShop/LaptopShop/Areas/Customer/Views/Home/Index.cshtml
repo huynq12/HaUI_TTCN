@@ -1,4 +1,7 @@
-﻿<!-- SECTION -->
+﻿@using LaptopShop.Models.EF;
+@using LaptopShop.Models.ViewModels;
+@model List<ProductDto>
+<!-- SECTION -->
 <div class="section">
 	<!-- container -->
 	<div class="container">
@@ -29,6 +32,7 @@
 					</div>
 				</div>
 			</div>
+			
 			<!-- /shop -->
 			<!-- shop -->
 			<div class="col-md-4 col-xs-6">
@@ -78,19 +82,23 @@
 						<!-- tab -->
 						<div id="tab1" class="tab-pane active">
 							<div class="products-slick" data-nav="#slick-nav-1">
+								@foreach(var item in Model)
+								{
+									
 								<!-- product -->
 								<div class="product">
 									<div class="product-img">
-										<img src="~/CustomerContent/img/new-pictures/laptop1.jpg" alt="">
+											@*<img src="~/CustomerContent/img/new-pictures/laptop1.jpg" alt="">*@
+											<img src="@Url.Content(item.Image)" alt="" class="card-img-top">
 										<div class="product-label">
 											<span class="sale">-30%</span>
 											<span class="new">NEW</span>
 										</div>
 									</div>
 									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">MSI Modern 15 A10M-068VN Laptop–Space</a></h3>
-										<h4 class="product-price">18.600.000 đ <del class="product-old-price">20.600.000 đ</del></h4>
+										<p class="product-category">@item.CategoryName</p>
+										<h3 class="product-name"><a href="#">@item.Name</a></h3>
+										<h4 class="product-price">@item.Price<del class="product-old-price">20.600.000 đ</del></h4>
 										<div class="product-rating">
 											<i class="fa fa-star"></i>
 											<i class="fa fa-star"></i>
@@ -105,10 +113,15 @@
 										</div>
 									</div>
 									<div class="add-to-cart">
-										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+											<button class="add-to-cart-btn">
+												<i class="fa fa-shopping-cart"></i>
+											<a class="btn" asp-controller="Cart" asp-action="Add" asp-route-id="@item.ProductId">Add to cart</a>
+										 </button>
 									</div>
 								</div>
 								<!-- /product -->
+								}
+
 								<!-- product -->
 								<div class="product">
 									<div class="product-img">
@@ -139,6 +152,8 @@
 									</div>
 								</div>
 								<!-- /product -->
+								
+
 								<!-- product -->
 								<div class="product">
 									<div class="product-img">

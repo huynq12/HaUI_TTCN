@@ -1,6 +1,13 @@
 using LaptopShop.Data;
 using LaptopShop.Models;
+using LaptopShop.Models.EF;
+using LaptopShop.Models.ViewModels;
+using LaptopShop.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,38 +16,30 @@ builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
 builder.Services.AddDbContext<LaptopDbContext>(options =>
 {
-	options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer_Hoang"));
+	options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer_huy"));
+});
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+    .AddEntityFrameworkStores<LaptopDbContext>()
+    .AddDefaultTokenProviders();
+
+builder.Services.ConfigureApplicationCookie(options => options.LoginPath = "/Identity/UserAuthentication/Login");
+
+//add services to container
+builder.Services.AddScoped<IUserAuthenticationService, UserAuthenticationService>();
+
+builder.Services.AddSession(options =>
+{
+    // Set a short timeout for easy testing.
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    //options.Cookie.HttpOnly = true;
+    // Make the session cookie essential
+    options.Cookie.IsEssential = true;
 });
 
-/*builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
-{
-	options.Password.RequireDigit = true;
-	options.Password.RequiredLength = 6;
-	options.Password.RequireLowercase = true;
-}).AddEntityFrameworkStores<LaptopDbContext>()
-  .AddDefaultTokenProviders();
-*/
-/*builder.Services.AddAuthentication(auth =>
-{
-	auth.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-	auth.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-	auth.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-}).AddJwtBearer(options =>
-{
-	options.SaveToken = true;
-	options.RequireHttpsMetadata = true;
-	options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
-	{
-		ValidateIssuer = true,
-		ValidateAudience = true,
-		ValidateLifetime = true,
-		RequireExpirationTime = true,
-		ValidateIssuerSigningKey = true,
-		ValidIssuer = builder.Configuration["JWT:ValidIssuer"],
-		ValidAudience = builder.Configuration["JWT:ValidAudience"],
-		IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Key"]))
-	};
-});*/
+
+
+
+
 
 var app = builder.Build();
 
@@ -60,9 +59,9 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
+app.UseSession();
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.UseEndpoints(endpoints =>
