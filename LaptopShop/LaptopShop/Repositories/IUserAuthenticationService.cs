@@ -1,9 +1,8 @@
-﻿using LaptopShop.Models;
-using LaptopShop.Models.ViewModels;
+﻿using LaptopShop.Models.ViewModels;
 
 namespace LaptopShop.Repositories
 {
-	public interface IUserAuthenticationService
+    public interface IUserAuthenticationService
 	{
 		Task<Status> LoginAsync(LoginViewModel model);
 		Task LogoutAsync();

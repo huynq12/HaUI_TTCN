@@ -1,5 +1,4 @@
-﻿using LaptopShop.Models;
-using LaptopShop.Models.ViewModels;
+﻿using LaptopShop.Models.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 
@@ -7,7 +6,7 @@ using System.Security.Claims;
 
 namespace LaptopShop.Repositories
 {
-	public class UserAuthenticationService : IUserAuthenticationService
+    public class UserAuthenticationService : IUserAuthenticationService
 	{
 		private readonly UserManager<ApplicationUser> userManager;
 		private readonly RoleManager<IdentityRole> roleManager;
