@@ -3,8 +3,17 @@
 	<div id="top-header">
 		<div class="container">
 			<ul class="header-links pull-right">
-				<li><a asp-area="Identity" asp-action="Login" asp-controller="UserAuthentication">Đăng nhập</a></li>
-				<li><a asp-area="Identity" asp-action="Registration" asp-controller="UserAuthentication">Đăng ký</a></li>
+				
+				@if (!string.IsNullOrEmpty(User.Identity.Name))
+				{
+					<li><a href="/Identity/UserAuthentication/ChangePassword">Đổi mật khẩu</a></li>
+					<li><a href="/Identity/UserAuthentication/Logout">Logout</a></li>
+				}
+				else
+				{
+					<li><a asp-area="Identity" asp-action="Login" asp-controller="UserAuthentication">Đăng nhập</a></li>
+					<li><a asp-area="Identity" asp-action="Registration" asp-controller="UserAuthentication">Đăng ký</a></li>
+				}
 			</ul>
 		</div>
 	</div>
