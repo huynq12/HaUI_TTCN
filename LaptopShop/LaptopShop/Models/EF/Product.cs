@@ -22,7 +22,7 @@ namespace LaptopShop.Models.EF
         public byte? Warranty { get; set; } // số tháng bảo hành
         public string? Description { get; set; }
         public string? Image { get; set; }
-        public decimal? Price { get; set; }
+        public decimal Price { get; set; }
         public int? Quantity { get; set; } // số lượng còn trong kho
         [Display(Name = "Category Name")]
         public int? CategoryId { get; set; }
