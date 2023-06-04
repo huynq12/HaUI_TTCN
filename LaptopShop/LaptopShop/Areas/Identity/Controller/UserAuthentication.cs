@@ -96,7 +96,7 @@ namespace LaptopShop.Areas.Identity
 				return View(model);
 			var result = await _authService.ChangePasswordAsync(model, User.Identity.Name);
 			TempData["msg"] = result.Message;
-			return RedirectToAction(nameof(ChangePassword));
+			return RedirectToAction("Index", "Home", new { area = "Customer" });
 		}
 	}
 }
