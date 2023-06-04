@@ -51,7 +51,7 @@ namespace LaptopShop.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("CartItems", (string)null);
+                    b.ToTable("CartItems");
                 });
 
             modelBuilder.Entity("LaptopShop.Models.EF.Category", b =>
@@ -74,7 +74,7 @@ namespace LaptopShop.Migrations
 
                     b.HasKey("CategoryId");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("LaptopShop.Models.EF.Order", b =>
@@ -99,7 +99,7 @@ namespace LaptopShop.Migrations
 
                     b.HasKey("OrderId");
 
-                    b.ToTable("Orders", (string)null);
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("LaptopShop.Models.EF.OrderDetail", b =>
@@ -134,7 +134,7 @@ namespace LaptopShop.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("OrderDetails", (string)null);
+                    b.ToTable("OrderDetails");
                 });
 
             modelBuilder.Entity("LaptopShop.Models.EF.Product", b =>
@@ -200,7 +200,7 @@ namespace LaptopShop.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products", (string)null);
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("LaptopShop.Models.ViewModels.ApplicationUser", b =>

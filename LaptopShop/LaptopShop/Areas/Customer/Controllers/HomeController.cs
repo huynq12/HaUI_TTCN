@@ -31,7 +31,8 @@ namespace LaptopShop.Areas.Customer.Controllers
                 Price = x.Price,
                 Image = x.Image
             }).ToList();
-             return View(listProduct);
+            
+            return View(listProduct);
          }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

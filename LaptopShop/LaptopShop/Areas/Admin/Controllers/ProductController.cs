@@ -9,6 +9,7 @@ using LaptopShop.Data;
 using LaptopShop.Models.EF;
 using X.PagedList;
 using X.PagedList.Mvc.Core;
+using Microsoft.Data.SqlClient;
 
 namespace LaptopShop.Areas.Admin.Controllers
 {
@@ -23,34 +24,47 @@ namespace LaptopShop.Areas.Admin.Controllers
         }
 
         // GET: Admin/Product
-        public async Task<IActionResult> Index(string searchString, string currentFilter, string sortOrder, int? page)
+        public async Task<IActionResult> Index(string sortOrder, int? page)
         {
+            // determine sort order
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.SortByPrice = string.IsNullOrEmpty(sortOrder) ? "price_desc" : "";
+            ViewBag.SortByRAM = (sortOrder == "ram") ? "ram_desc" : "ram";
+
             // get products
             var products = _context.Products.Include(p => p.Category).ToList();
 
-            // get products based on current filter
-            if (searchString != null) { page = 1; }
-            else { searchString = currentFilter; }
-            ViewBag.CurrentFilter = searchString;
+            //// get products based on current filter
+            //if (searchString != null) { page = 1; }
+            //else { searchString = currentFilter; }
+            //ViewBag.CurrentFilter = searchString;
 
-            // filter products based on search query
-            if (!string.IsNullOrEmpty(searchString))
-            {
-                products = products.Where(p => p.Name.Contains(searchString)).ToList();
-            }
+            //// filter products by name
+            //if (!string.IsNullOrEmpty(searchString))
+            //{
+            //    products = products.Where(p => p.Name.Contains(searchString)).ToList();
+            //}
 
-            // determine sort order
-            ViewBag.CurrentSort = sortOrder;
-            ViewBag.SortByName = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            ViewBag.SortByPrice = (sortOrder == "price") ? "price_desc" : "price";
+            //// filter products by brand
+            //if (!string.IsNullOrEmpty(searchString))
+            //{
+            //    products = products.Where(p => p.Brand.Contains(searchString)).ToList();
+            //}
 
             // sort products based on the sort order
             switch (sortOrder)
             {
-                case "":
-                    
+                case "price_desc":
+                    products = products.OrderByDescending(p => p.Price).ToList();
+                    break;
+                case "ram":
+                    products = products.OrderBy(p => p.RAM).ToList();
+                    break;
+                case "ram_desc":
+                    products = products.OrderByDescending(p => p.RAM).ToList();
                     break;
                 default:
+                    products = products.OrderBy(p => p.Price).ToList();
                     break;
             }
 
