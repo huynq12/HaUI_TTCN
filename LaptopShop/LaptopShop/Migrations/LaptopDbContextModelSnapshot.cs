@@ -85,16 +85,26 @@ namespace LaptopShop.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderId"));
 
-                    b.Property<string>("Note")
+                    b.Property<string>("Address")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("GrandTotal")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime?>("OrderDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool?>("Paid")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Status")
+                    b.Property<string>("Phone")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("OrderId");
@@ -122,19 +132,13 @@ namespace LaptopShop.Migrations
                     b.Property<int?>("Quantity")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("RecievedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Status")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("OrderDetailId");
 
                     b.HasIndex("OrderId");
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("OrderDetails");
+                    b.ToTable("OrderDetail");
                 });
 
             modelBuilder.Entity("LaptopShop.Models.EF.Product", b =>
@@ -428,7 +432,7 @@ namespace LaptopShop.Migrations
                         .IsRequired();
 
                     b.HasOne("LaptopShop.Models.EF.Product", "Product")
-                        .WithMany("OrderDetails")
+                        .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -511,8 +515,6 @@ namespace LaptopShop.Migrations
             modelBuilder.Entity("LaptopShop.Models.EF.Product", b =>
                 {
                     b.Navigation("CartItems");
-
-                    b.Navigation("OrderDetails");
                 });
 #pragma warning restore 612, 618
         }

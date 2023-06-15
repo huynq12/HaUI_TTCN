@@ -1152,3 +1152,7 @@ E:\haui_s6\thuc_tap_chuyen_nganh\HaUI_TTCN\LaptopShop\LaptopShop\bin\Debug\net6.
 E:\haui_s6\thuc_tap_chuyen_nganh\HaUI_TTCN\LaptopShop\LaptopShop\bin\Debug\net6.0\X.PagedList.Mvc.Core.dll
 E:\haui_s6\thuc_tap_chuyen_nganh\HaUI_TTCN\LaptopShop\LaptopShop\obj\Debug\net6.0\scopedcss\Areas\Admin\Views\Shared\_AdminLayout.cshtml.rz.scp.css
 E:\haui_s6\thuc_tap_chuyen_nganh\HaUI_TTCN\LaptopShop\LaptopShop\obj\Debug\net6.0\scopedcss\Areas\Customer\Views\Shared\_CustomerLayout.cshtml.rz.scp.css
+E:\haui_s6\thuc_tap_chuyen_nganh\HaUI_TTCN\LaptopShop\LaptopShop\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Cryptography.Internal.dll
+E:\haui_s6\thuc_tap_chuyen_nganh\HaUI_TTCN\LaptopShop\LaptopShop\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+E:\haui_s6\thuc_tap_chuyen_nganh\HaUI_TTCN\LaptopShop\LaptopShop\bin\Debug\net6.0\refs\Microsoft.Extensions.Identity.Core.dll
+E:\haui_s6\thuc_tap_chuyen_nganh\HaUI_TTCN\LaptopShop\LaptopShop\bin\Debug\net6.0\refs\Microsoft.Extensions.Identity.Stores.dll

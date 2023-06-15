@@ -23,18 +23,19 @@ namespace LaptopShop.Models.EF
         public string? Description { get; set; }
         public string? Image { get; set; }
         public decimal Price { get; set; }
-        public int? Quantity { get; set; } // số lượng còn trong kho
+
+		public int? Quantity { get; set; } // số lượng còn trong kho
         [Display(Name = "Category Name")]
         public int? CategoryId { get; set; }
 
         public virtual Category? Category { get; set; }
         public virtual ICollection<CartItem> CartItems { get; set; }
-        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        //public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
         public Product()
         {
             this.CartItems = new HashSet<CartItem>();
-            this.OrderDetails = new HashSet<OrderDetail>();
+            //this.OrderDetails = new HashSet<OrderDetail>();
         }
     }
 }

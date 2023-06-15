@@ -5,10 +5,10 @@
     ViewData["Title"] = "Cart Overview";
 }
 
-@if (Model.CartItems.Count > 0)
+@*@if (Model.CartItems.Count > 0)
 {
     <div class="container-fluid">
-        <table class="table">
+        <table class="table p-5">
         <tr>
             <th>Product</th>
             <th>Quantity</th>
@@ -19,22 +19,22 @@
         @foreach (var item in Model.CartItems)
         {
             <tr>
-                <td>@item.ProductName</td>
+                    <td><a href="/Customer/Product/Detail/@item.ProductId">@item.ProductName</a></td>
                 <td>@item.Quantity</td>
                 <td>
                     <a class="btn btn-primary btn-sm" asp-action="Add" asp-route-id="@item.ProductId">+</a>
                     <a class="btn btn-info btn-sm" asp-action="Decrease" asp-route-id="@item.ProductId">-</a>
                     <a class="btn btn-danger btn-sm" asp-action="Remove" asp-route-id="@item.ProductId">Remove</a>
                 </td>
-                <td>@item.Price.ToString("C2")</td>
-                <td>@Model.CartItems.Where(x => x.ProductId == item.ProductId).Sum(x => x.Quantity * x.Price).ToString("C2")</td>
+                <td>@item.Price.ToString("0,0")đ</td>
+                <td>@Model.CartItems.Where(x => x.ProductId == item.ProductId).Sum(x => x.Quantity * x.Price).ToString("0,0")đ</td>
             </tr>
         }
         <tr>
-            <td class="text-right" colspan="4">Grand Total: @Model.GrandTotal.ToString("C2")</td>
+            <td class="text-right" colspan="5">Grand Total: @Model.GrandTotal.ToString("0,0")đ</td>
         </tr>
         <tr>
-            <td class="text-right" colspan="4">
+            <td class="text-right" colspan="5">
                 <a class="btn btn-danger" asp-action="Clear">Clear Cart</a>
                 <a class="btn btn-primary" href="#">Checkout</a>
             </td>
@@ -43,9 +43,72 @@
     </div>
 
 
+}*@
+@if (Model.CartItems.Count > 0)
+{
+
+    <div class="container">
+        <div class="row">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.CartItems)
+                    {
+                        <tr>
+                            <td>
+                                <img src="@Url.Content(item.Image)" width="150px" height="150px" />
+                            </td>
+                            <td><a href="/Customer/Product/Detail/@item.ProductId">@item.ProductName</a></td>
+                            <td>
+                                <div class="border-1">
+                                    <a class="btn btn-info btn-sm" asp-action="Decrease" asp-route-id="@item.ProductId">-</a>
+                                    @item.Quantity
+                                    <a class="btn btn-primary btn-sm" asp-action="Add" asp-route-id="@item.ProductId">+</a>
+                                </div>
+                             </td>
+                            
+                            <td>@item.Price.ToString("0,0")đ</td>
+                            <th>@Model.CartItems.Where(x => x.ProductId == item.ProductId).Sum(x => x.Quantity * x.Price).ToString("0,0")đ</th>
+                            <td>
+                                <a class="btn btn-danger btn-sm" asp-action="Remove" asp-route-id="@item.ProductId">
+                                    <i class="fas fa-trash-alt"></i>
+                                    Xoá sản phẩm
+                                </a>
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <div class="col-5">
+                <a asp-action="Index" asp-controller="Home" class="btn btn-success">Trở về</a>
+                <a class="btn btn-danger" asp-action="Clear">Xoá toàn bộ</a>
+
+            </div>
+            <div class="col-5 text-right">
+                <h3>Tổng</h3>
+                <h3>@Model.GrandTotal.ToString("0,0")đ </h3>
+                <a asp-area="Customer" asp-action="Checkout" asp-controller="Order" class="btn btn-info">Tiến hành đặt hàng</a>
+            </div>
+        </div>
+    </div>
+
 }
 else
 {
     <h3 class="display-4 text-center">Your cart is empty.</h3>
 }
+
+
 
